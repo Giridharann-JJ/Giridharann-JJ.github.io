@@ -1,0 +1,452 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #1a202c;
+    position: relative;
+}
+
+/* Removed heavy background pattern for better performance */
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Calculator Card */
+.calculator-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Table Styles */
+.table-container {
+    margin-bottom: 35px;
+    overflow-x: auto;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.subjects-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent;
+}
+
+.subjects-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 18px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    position: relative;
+}
+
+.subjects-table th:first-child {
+    border-top-left-radius: 16px;
+}
+
+.subjects-table th:last-child {
+    border-top-right-radius: 16px;
+}
+
+.subjects-table td {
+    padding: 16px 18px;
+    text-align: center;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.subjects-table tr:hover td {
+    background: rgba(102, 126, 234, 0.05);
+}
+
+.subjects-table tr:last-child td:first-child {
+    border-bottom-left-radius: 16px;
+}
+
+.subjects-table tr:last-child td:last-child {
+    border-bottom-right-radius: 16px;
+}
+
+.course-number {
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin: 0;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2d3748;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.1),
+        0 4px 16px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23667eea" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.form-group select option {
+    background: white;
+    color: #2d3748;
+    padding: 8px;
+}
+
+.remove-subject {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(245, 101, 101, 0.3);
+}
+
+.remove-subject:hover {
+    background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(245, 101, 101, 0.4);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.btn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    min-width: 160px;
+}
+
+/* Removed button shine effect for better performance */
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(72, 187, 120, 0.3);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(72, 187, 120, 0.4);
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 35px;
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.result-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    color: white;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 
+        0 20px 40px rgba(102, 126, 234, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Removed shimmer animation for better performance */
+
+.result-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.result-card p {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Removed shimmer keyframes */
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .calculator-card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+    
+    .subjects-table th,
+    .subjects-table td {
+        padding: 12px 10px;
+        font-size: 0.95rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
+    
+    .result-card {
+        padding: 30px 25px;
+    }
+    
+    .result-card h2 {
+        font-size: 2rem;
+    }
+    
+    .result-card p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+    
+    header h1 {
+        font-size: 1.9rem;
+    }
+    
+    .calculator-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+    
+    .subjects-table th,
+    .subjects-table td {
+        padding: 10px 6px;
+        font-size: 0.9rem;
+    }
+    
+    .subjects-table th:first-child,
+    .subjects-table td:first-child {
+        width: 18%;
+    }
+    
+    .subjects-table th:nth-child(2),
+    .subjects-table td:nth-child(2) {
+        width: 28%;
+    }
+    
+    .subjects-table th:last-child,
+    .subjects-table td:last-child {
+        width: 54%;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        min-width: 140px;
+    }
+    
+    .result-card {
+        padding: 25px 20px;
+    }
+    
+    .result-card h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Loading state */
+.calculating {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.calculating .btn-primary {
+    background: linear-gradient(135deg, #a0aec0 0%, #718096 100%);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Error states */
+.form-group.error input,
+.form-group.error select {
+    border-color: #fc8181;
+    box-shadow: 0 0 0 3px rgba(252, 129, 129, 0.2);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Removed floating animation for better performance */
+
+/* Simplified focus styles without animation */
